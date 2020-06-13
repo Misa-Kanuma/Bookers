@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'todolists/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get 'top' => 'homes#top'
+  get '/' => 'homes#top'
+
+  get 'todolists/new'
 
   get 'index' => 'todolists#index'
 
@@ -17,5 +18,4 @@ Rails.application.routes.draw do
   patch 'todolists/:id' => 'todolists#update', as: 'update_todolist'
 
   delete 'todolists/:id' => 'todolists#destroy', as: 'destroy_todolist'
-
 end
