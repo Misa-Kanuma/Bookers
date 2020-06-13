@@ -1,9 +1,8 @@
 <p>Book was successfully created.</p>
 
-	<h4>Title<h4>
-		<p><%= @list.title %></p>
+	<p><span>Title:</span><%= @list.title %></p>
 
-	<h4>Body<h4>
-		<p><%= @list.body %></p>
+	<p><span>Body:</span><%= @list.body %></p>
 
 <%= link_to "edit", edit_todolist_path(@list.id) %>
+<%= link_to "back", todolists_path(@list.id) %>
