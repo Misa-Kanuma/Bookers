@@ -1,0 +1,14 @@
+<h1>Bookers</h1>
+<!-- form_for部分 -->
+<%= form_for(@list, url: '/todolists') do |f| %>
+
+	<h4>Book</h4>
+
+	<h5>Title</h5>
+	<%= f.text_field :title %>
+
+	<h5>Body</h5>
+	<%= f.text_area :body %>
+
+	<%= f.submit 'CreateBook' %>
+<% end %>
