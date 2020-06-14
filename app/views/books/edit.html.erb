@@ -1,4 +1,15 @@
 <h2>Editing Book</h2>
+
+<% if @book.errors.any? %>
+	<div>
+		<ul style="color: red">
+			<% @book.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
 <%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
     <%= f.label :Title %><br>
     <%= f.text_field :title %><br>
