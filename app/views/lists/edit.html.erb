@@ -1,0 +1,14 @@
+<h2>Editing Book</h2>
+<%= form_for(@list, url:"/lists/#{@list.id}") do |f| %>
+    <%= f.label :Title %><br>
+    <%= f.text_field :title %><br>
+
+	<%= f.label :Body %><br>
+    <%= f.text_area :body %><br>
+
+    <%= f.submit 'Update Book' %><br>
+
+    <%= link_to "show", lists_path(@list.id) %>
+	<%= link_to "back", lists_path %>
+
+<% end %>

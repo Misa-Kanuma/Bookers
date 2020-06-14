@@ -1,15 +1,17 @@
-class TodolistsController < ApplicationController
-	def new
-  	@list = List.new
+class ListsController < ApplicationController
+
+	def top
 	end
 
 	def create
   	list = List.new(list_params)
-  	list.save
-  	redirect_to todolist_path(list.id)
+	    if list.save
+			redirect_to list_path(list.id), notice: "Book was successfully created."
+		end
 	end
 
 	def index
+		@list = List.new
 		@lists = List.all
 	end
 
@@ -23,16 +25,16 @@ class TodolistsController < ApplicationController
 
 	def update
 		list = List.find(params[:id])
-        list.update(list_params)
-        redirect_to todolist_path(list.id)
+        if list.update(list_params)
+			redirect_to lists_path(list.id), notice: "Book was successfully updated."
+		end
 	end
 
 	def destroy
 		list = List.find(params[:id])
         list.destroy
-        redirect_to todolist_path(list.id)
+	    redirect_to lists_path, notice: "Book was successfully destroyed."
 	end
-
 private
 
 	def list_params

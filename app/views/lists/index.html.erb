@@ -1,0 +1,38 @@
+<h2 class="header-text">Books</h2>
+
+
+<table>
+<thead>
+	<tr>
+		<th>Title</th>
+		<th>Body</th>
+		<th></th>
+	</tr>
+</thead>
+<tr>
+	<% @lists.each do |list| %>
+<tbody>
+	<td><%= list.title %></td>
+	<td><%= list.body %></td>
+	<td><%= link_to "Show", list_path(list.id) %></td>
+	<td><%= link_to "Edit", edit_list_path(list.id) %></td>
+	<td><%= link_to "Destroy", list_path(list.id), method: :delete, "data-confirm" =>"Are you sure?" %></td>
+</tbody>
+</tr>
+<% end %>
+</table>
+<!-- form_for部分 -->
+	<%= form_for(List.new, url: '/lists') do |f| %>
+
+	<h4>New book</h4>
+
+	<%= f.label :Title %><br>
+	<%= f.text_field :title %><br>
+
+
+	<%= f.label :Body %><br>
+	<%= f.text_area :body %><br>
+
+	<%= f.submit 'CreateBook' %>
+
+<% end %>
